@@ -11,7 +11,9 @@ Zombie::~Zombie() {
 }
 
 Zombie &Zombie::operator=(const Zombie &z) {
-	_name = z._name;
+	if (this != &z) {
+		_name = z._name;
+	}
 	return *this;
 }
 
@@ -19,6 +21,10 @@ Zombie::Zombie(const Zombie &z) {
 	_name = z._name;
 }
 
-void  Zombie::announce(){
+void 	Zombie::announce(){
 	std::cout << _name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+}
+
+void	Zombie::setName(std::string name) {
+	_name = name;
 }
